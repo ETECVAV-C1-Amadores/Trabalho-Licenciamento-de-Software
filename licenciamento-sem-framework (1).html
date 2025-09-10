@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Licenciamento de Software</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.125rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .flex-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-section img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .flex-section > div:nth-child(2) {
+            padding-left: 0;
+        }
+        .code-editor {
+            background-color: #1f2937;
+            color: #f9fafb;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-family: monospace;
+            resize: vertical;
+            width: 100%;
+            height: 8rem;
+        }
+        .button-green {
+            background-color: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+        }
+        .button-green:hover {
+            background-color: #059669;
+        }
+        .button-blue {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+        }
+        .button-blue:hover {
+            background-color: #2563eb;
+        }
+        .button-disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        .hidden {
+            display: none;
+        }
+        .eula-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #d1d5db;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .flex-label {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        .flex-label input {
+            margin-right: 0.5rem;
+        }
+        /* Responsividade */
+        @media (min-width: 768px) {
+            .flex-section {
+                flex-direction: row;
+            }
+            .flex-section img {
+                width: 48%;
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
+            .flex-section > div:nth-child(2) {
+                flex: 1;
+                padding-left: 1rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Demonstração Prática de Tipos de Licenciamento de Software</h1>
+        <p>Explore interativamente análises de licenciamento, como comercialização e modificação de código.</p>
+    </div>
+
+    <div class="container">
+        <!-- Seção Software Proprietário -->
+        <section class="section" id="proprietary">
+            <h2>Software Proprietário</h2>
+            <div class="flex-section">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2620ab96-6b5a-4ee5-8c7d-56a4826e6c3d.png" alt="Ilustração de software proprietário com ícones de cadeado e dinheiro simbolizando propriedade e comercialização" />
+                <div>
+                    <p class="mb-4">O software proprietário é fechado, pertencendo a uma empresa. Ele é comercializável e vedado para modificações sem permissão.</p>
+                    <button class="button-green" id="buyBtn">Comprar Licença (R$ 99,90)</button>
+                    <p id="buyMessage" class="hidden">Compra simulada concluída! Obrigado por escolher o software proprietário.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Open Source / Free Software (GPL) -->
+        <section class="section" id="open-source">
+            <h2>Software Open Source / Free Software (Ex: GPL)</h2>
+            <div class="flex-section">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/34666fa8-0f91-4839-a384-6e07635380aa.png" alt="Ilustração de software open source com ícones de código aberto e compartilhamento simbolizando liberdade e modificabilidade" />
+                <div>
+                    <p class="mb-4">O software open source é livre para uso, modificação e distribuição sob licenças como GPL. Edite o código abaixo para simular modificações!</p>
+                    <textarea class="code-editor" id="codeEditor" contenteditable="true">
+// Exemplo de código open source em JavaScript
+function helloWorld() {
+  console.log("Olá, Mundo!");
+}
+helloWorld();
+</textarea>
+                    <p class="mt-4 text-sm">Tente modificar o console.log para ver mudanças em tempo real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Freeware -->
+        <section class="section" id="freeware">
+            <h2>Freeware</h2>
+            <div class="flex-section">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9d83d960-c554-4799-b191-75742f23247a.png" alt="Ilustração de freeware com ícones de download gratuito e restrições simbolizando acesso sem custo mas limitado" />
+                <div>
+                    <p class="mb-4">Freeware é gratuito para uso, mas sem direito de modificar ou redistribuir fonte closed-source.</p>
+                    <button class="button-blue" id="downloadBtn">Download Grátis</button>
+                    <p id="downloadMessage" class="hidden">Download simulado! Versão limitada: sem modificações ativas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Shareware -->
+        <section class="section" id="shareware">
+            <h2>Shareware</h2>
+            <div class="flex-section">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/42b64be1-9cfc-47f4-ab48-dfe0d732ea4e.png" alt="Ilustração de shareware com ícones de teste e compra simbolizando período de avaliação seguido de custo" />
+                <div>
+                    <p class="mb-4">Shareware permite teste gratuito, mas requer compra para uso pleno.</p>
+                    <button class="button-blue" id="trialBtn">Iniciar Trial Grátis</button>
+                    <button class="button-green" id="buySharewareBtn">Comprar Após Trial (R$ 49,90)</button>
+                    <p id="trialMessage" class="hidden">Trial iniciado! Após 30 dias, compre para continuar.</p>
+                    <p id="buySharewareMessage" class="hidden">Compra do shareware simulada!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Simulação de EULA -->
+        <section class="section" id="eula">
+            <h2>Simulação de Contrato de EULA (End User License Agreement)</h2>
+            <div class="flex-section">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d2d588c6-bedb-4c58-8b4a-4fc0a3d73020.png" alt="Documento de contrato EULA em papel branco com texto legal, ícones de acordo e assinatura digital na forma de um contrato de licença de software aberto em uma mesa de escritório organizada" />
+                <div>
+                    <div class="eula-container">
+                        <p><strong>Contrato de Licença de Usuário Final (EULA) - Simulado</strong></p>
+                        <p>Este Acordo de Licença de Usuário Final ("Acordo") é celebrado entre você (o "Usuário") e [Nome da Empresa Simulada], fornecedora do software [Nome do Software Simulado] ("Software"). Ao instalar, copiar ou usar o Software, você concorda com os termos e condições deste Acordo.</p>
+                        <p><strong>1. Licença Concedida:</strong> Você recebe uma licença não exclusiva, intransferível para usar o Software apenas para fins pessoais ou comerciais autorizados, sujeita às restrições deste Acordo.</p>
+                        <p><strong>2. Restrições:</strong> Você não pode copiar, modificar, distribuir ou vender o Software sem permissão explícita. É proibido engenharia reversa, decompilação ou extração de código fonte.</p>
+                        <p><strong>3. Propriedade Intelectual:</strong> O Software e tudo relacionado a ele são propriedade da [Nome da Empresa Simulada]. Todos os direitos são reservados.</p>
+                        <p><strong>4. Limitação de Responsabilidade:</strong> [Nome da Empresa Simulada] não se responsabiliza por danos diretos, indiretos ou consequenciais decorrentes do uso do Software.</p>
+                        <p><strong>5. Término:</strong> Este Acordo termina se você violar qualquer cláusula. Ao término, você deve destruir todas as cópias do Software.</p>
+                        <p><strong>6. Lei Aplicável:</strong> Este Acordo é regido pelas leis do Brasil. Qualquer disputa será resolvida nos tribunais competentes.</p>
+                        <p><strong>7. Aceitação:</strong> Ao marcar a caixa abaixo e clicar em "Aceitar", você confirma ter lido e concordado com todos os termos deste Acordo.</p>
+                        <p>Este é um simulacro educacional. Em um cenário real, consulte um advogado para qualquer contrato legal.</p>
+                    </div>
+                    <div class="flex-label">
+                        <input type="checkbox" id="agreeCheckbox">
+                        Eu li e concordo com os termos do EULA acima.
+                    </div>
+                    <button id="acceptBtn" class="button-blue" disabled>Aceitar Termos</button>
+                    <p id="acceptMessage" class="hidden">Acordo aceito com sucesso! Você simulou a concordância com o EULA.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Interatividade para botão de compra (Proprietário)
+        document.getElementById('buyBtn').addEventListener('click', function() {
+            document.getElementById('buyMessage').classList.remove('hidden');
+        });
+
+        // Interatividade para editor de código (Open Source)
+        const codeEditor = document.getElementById('codeEditor');
+        codeEditor.addEventListener('input', function() {
+            console.log('Código modificado: ' + codeEditor.value);
+            alert('Código editado! Veja no console para detalhes.');
+        });
+
+        // Interatividade para download (Freeware)
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            document.getElementById('downloadMessage').classList.remove('hidden');
+        });
+
+        // Interatividade para trial (Shareware)
+        document.getElementById('trialBtn').addEventListener('click', function() {
+            document.getElementById('trialMessage').classList.remove('hidden');
+        });
+        document.getElementById('buySharewareBtn').addEventListener('click', function() {
+            document.getElementById('buySharewareMessage').classList.remove('hidden');
+        });
+
+        // Interatividade para EULA
+        const agreeCheckbox = document.getElementById('agreeCheckbox');
+        const acceptBtn = document.getElementById('acceptBtn');
+        const acceptMessage = document.getElementById('acceptMessage');
+
+        agreeCheckbox.addEventListener('change', function() {
+            acceptBtn.disabled = !this.checked;
+            acceptBtn.classList.toggle('button-disabled', !this.checked);
+        });
+
+        acceptBtn.addEventListener('click', function() {
+            if (agreeCheckbox.checked) {
+                acceptMessage.classList.remove('hidden');
+                alert('EULA aceito! Esta é uma simulação.');
+            }
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
