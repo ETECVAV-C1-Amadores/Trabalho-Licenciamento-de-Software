@@ -144,7 +144,7 @@
 <body>
     <div class="hero">
         <h1>Demonstração Prática de Tipos de Licenciamento de Software</h1>
-        <p>Explore interativamente análises de licenciamento, como comercialização e modificação de código.</p>
+        <p>Usando HTML, CSS e um pouco de JavaScript</p>
     </div>
 
     <div class="container">
@@ -243,13 +243,6 @@ helloWorld();
             document.getElementById('buyMessage').classList.remove('hidden');
         });
 
-        // Interatividade para editor de código (Open Source)
-        const codeEditor = document.getElementById('codeEditor');
-        codeEditor.addEventListener('input', function() {
-            console.log('Código modificado: ' + codeEditor.value);
-            alert('Código editado! Veja no console para detalhes.');
-        });
-
         // Interatividade para download (Freeware)
         document.getElementById('downloadBtn').addEventListener('click', function() {
             document.getElementById('downloadMessage').classList.remove('hidden');
@@ -262,11 +255,19 @@ helloWorld();
         document.getElementById('buySharewareBtn').addEventListener('click', function() {
             document.getElementById('buySharewareMessage').classList.remove('hidden');
         });
-
-        // Interatividade para EULA
+        // EULA: Habilitar checkbox apenas após rolar até o final
+        const eulaContainer = document.querySelector('.eula-container');
         const agreeCheckbox = document.getElementById('agreeCheckbox');
         const acceptBtn = document.getElementById('acceptBtn');
         const acceptMessage = document.getElementById('acceptMessage');
+        agreeCheckbox.disabled = true;
+
+        eulaContainer.addEventListener('scroll', function() {
+            const atBottom = eulaContainer.scrollTop + eulaContainer.clientHeight >= eulaContainer.scrollHeight - 2;
+            if (atBottom) {
+                agreeCheckbox.disabled = false;
+            }
+        });
 
         agreeCheckbox.addEventListener('change', function() {
             acceptBtn.disabled = !this.checked;
