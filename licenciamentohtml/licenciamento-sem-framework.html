@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Licenciamento de Software</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.125rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .flex-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-section img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .flex-section > div:nth-child(2) {
+            padding-left: 0;
+        }
+        .code-editor {
+            background-color: #1f2937;
+            color: #f9fafb;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-family: monospace;
+            resize: vertical;
+            width: 100%;
+            height: 8rem;
+        }
+        .button-green {
+            background-color: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+        }
+        .button-green:hover {
+            background-color: #059669;
+        }
+        .button-blue {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+        }
+        .button-blue:hover {
+            background-color: #2563eb;
+        }
+        .button-disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        .hidden {
+            display: none;
+        }
+        .eula-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #d1d5db;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .flex-label {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        .flex-label input {
+            margin-right: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .flex-section {
+                flex-direction: row;
+            }
+            .flex-section img {
+                width: 48%;
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
+            .flex-section > div:nth-child(2) {
+                flex: 1;
+                padding-left: 1rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Demonstração Prática de Tipos de Licenciamento de Software</h1>
+        <p>Usando HTML, CSS e um pouco de JavaScript</p>
+    </div>
+
+    <div class="container">
+        
+        <section class="section" id="proprietary">
+            <h2>Software Proprietário</h2>
+            <div class="flex-section">
+                <img src="windowsicon.png" alt="Ilustração de software proprietário com ícones de cadeado e dinheiro simbolizando propriedade e comercialização" />
+                <div>
+                    <p class="mb-4">O software proprietário é fechado, pertencendo a uma empresa. Ele é comercializável e vedado para modificações sem permissão.</p>
+                    <button class="button-green" id="buyBtn">Comprar Licença (R$ 99,90)</button>
+                    <p id="buyMessage" class="hidden">Compra simulada concluída! Obrigado por escolher o software proprietário.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        
+        <section class="section" id="open-source">
+            <h2>Software Open Source / Free Software (Ex: GPL)</h2>
+            <div class="flex-section">
+                <img src="linuxpenguin.png" alt="Ilustração de software open source com ícones de código aberto e compartilhamento simbolizando liberdade e modificabilidade" />
+                <div>
+                    <p class="mb-4">O software open source é livre para uso, modificação e distribuição sob licenças como GPL. Edite o código abaixo para simular modificações!</p>
+                    <textarea class="code-editor" id="codeEditor" contenteditable="true">
+// Exemplo de código open source em JavaScript
+function helloWorld() {
+  console.log("Olá, Mundo!");
+}
+helloWorld();
+</textarea>
+                    <p class="mt-4 text-sm">Tente modificar o console.log para ver mudanças em tempo real.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section" id="freeware">
+            <h2>Freeware</h2>
+            <div class="flex-section">
+                <img src="chromelogo.jpg" alt="Ilustração de freeware com ícones de download gratuito e restrições simbolizando acesso sem custo mas limitado" />
+                <div>
+                    <p class="mb-4">Freeware é gratuito para uso, mas sem direito de modificar ou redistribuir fonte closed-source.</p>
+                    <button class="button-blue" id="downloadBtn">Download Grátis</button>
+                    <p id="downloadMessage" class="hidden">Download simulado! Versão limitada: sem modificações ativas.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section" id="shareware">
+            <h2>Shareware</h2>
+            <div class="flex-section">
+                <img src="fruityloops.jpg" alt="Ilustração de shareware com ícones de teste e compra simbolizando período de avaliação seguido de custo" />
+                <div>
+                    <p class="mb-4">Shareware permite teste gratuito, mas requer compra para uso pleno.</p>
+                    <button class="button-blue" id="trialBtn">Iniciar Trial Grátis</button>
+                    <button class="button-green" id="buySharewareBtn">Comprar Após Trial (R$ 49,90)</button>
+                    <p id="trialMessage" class="hidden">Trial iniciado! Após 30 dias, compre para continuar.</p>
+                    <p id="buySharewareMessage" class="hidden">Compra do shareware simulada!</p>
+                </div>
+            </div>
+        </section>
+
+      
+        <section class="section" id="eula">
+            <h2>Simulação de Contrato de EULA (End User License Agreement)</h2>
+            <div class="flex-section">
+                <img src="document.png" alt="Documento de contrato EULA em papel branco com texto legal, ícones de acordo e assinatura digital na forma de um contrato de licença de software aberto em uma mesa de escritório organizada" />
+                <div>
+                    <div class="eula-container">
+<p><strong>Contrato de Licença de Usuário Final (EULA) - Simulado</strong></p>
+<p>Este Acordo de Licença de Usuário Final (“Acordo”) é celebrado entre você (“Usuário”) e [Nome da Empresa Simulada] (“Empresa”), fornecedora do software [Nome do Software Simulado] (“Software”). Ao instalar, copiar ou usar o Software, você concorda com todos os termos aqui estabelecidos.</p>
+
+<p><strong>1. Concessão de Licença:</strong> O Usuário recebe uma licença limitada, não exclusiva, revogável e intransferível para uso do Software, exclusivamente para fins autorizados pela Empresa.</p>
+<p><strong>2. Restrições de Uso:</strong> É vedado modificar, copiar, distribuir, sublicenciar ou criar obras derivadas a partir do Software.</p>
+<p><strong>3. Propriedade Intelectual:</strong> Todo o conteúdo, código e documentação associados ao Software são de propriedade exclusiva da Empresa.</p>
+<p><strong>4. Atualizações:</strong> A Empresa poderá lançar atualizações que devem ser aceitas para continuidade do uso.</p>
+<p><strong>5. Limitação de Responsabilidade:</strong> O Software é fornecido “como está”, sem garantias explícitas ou implícitas.</p>
+<p><strong>6. Garantia Limitada:</strong> A Empresa não garante funcionamento ininterrupto, livre de erros ou compatibilidade universal.</p>
+<p><strong>7. Suporte Técnico:</strong> O suporte poderá ser fornecido de forma limitada, e a Empresa poderá suspendê-lo a qualquer momento.</p>
+<p><strong>8. Privacidade:</strong> O Usuário concorda que dados técnicos poderão ser coletados para fins de melhoria do Software.</p>
+<p><strong>9. Uso Internacional:</strong> O Usuário é responsável por observar as leis locais além das leis brasileiras.</p>
+<p><strong>10. Término:</strong> O descumprimento de qualquer cláusula resultará na rescisão imediata da licença.</p>
+
+<p><strong>11. Auditoria:</strong> A Empresa poderá realizar auditorias remotas ou locais para verificar a conformidade do uso.</p>
+<p><strong>12. Backup:</strong> A Empresa não se responsabiliza por perdas de dados, sendo obrigação do Usuário realizar backups.</p>
+<p><strong>13. Exportação:</strong> O Usuário deverá observar leis de exportação e importação aplicáveis ao uso do Software.</p>
+<p><strong>14. Licença de Teste:</strong> Se fornecida versão de avaliação, ela expira automaticamente após o prazo estipulado.</p>
+<p><strong>15. Licença Temporária:</strong> Algumas licenças podem ser limitadas em tempo ou recursos, cabendo ao Usuário respeitar tais limitações.</p>
+<p><strong>16. Alterações:</strong> A Empresa poderá modificar este Acordo unilateralmente, sendo obrigação do Usuário revisá-lo periodicamente.</p>
+<p><strong>17. Notificações:</strong> O Usuário aceita receber notificações e comunicados exclusivamente por meios eletrônicos.</p>
+<p><strong>18. Responsabilidade do Usuário:</strong> O Usuário é responsável por manter o ambiente de hardware e software compatível com os requisitos.</p>
+<p><strong>19. Restrições Técnicas:</strong> O Usuário não deve contornar mecanismos de segurança, limitação ou autenticação do Software.</p>
+<p><strong>20. Continuidade:</strong> Algumas cláusulas permanecem válidas mesmo após o término da licença.</p>
+
+<p><strong>21. Integralidade:</strong> Este Acordo substitui quaisquer comunicações anteriores, verbais ou escritas.</p>
+<p><strong>22. Jurisdição:</strong> Fica eleito o foro da comarca de [Cidade/Estado] para dirimir quaisquer controvérsias.</p>
+<p><strong>23. Indenização:</strong> O Usuário indenizará a Empresa por danos causados pelo uso indevido do Software.</p>
+<p><strong>24. Direitos de Terceiros:</strong> Este Acordo não concede direitos a terceiros, salvo disposição legal em contrário.</p>
+<p><strong>25. Alterações de Serviço:</strong> A Empresa pode suspender ou modificar serviços relacionados ao Software sem aviso prévio.</p>
+<p><strong>26. Compatibilidade:</strong> O Software pode não ser compatível com todos os sistemas operacionais ou plataformas.</p>
+<p><strong>27. Acesso Remoto:</strong> O uso remoto do Software poderá estar sujeito a restrições adicionais.</p>
+<p><strong>28. Segurança:</strong> O Usuário deve utilizar o Software de forma a não comprometer a segurança de sistemas próprios ou de terceiros.</p>
+<p><strong>29. Proibição de Uso Malicioso:</strong> É proibido utilizar o Software para atividades ilícitas, fraudulentas ou que prejudiquem terceiros.</p>
+<p><strong>30. Licença Restrita:</strong> Alguns módulos podem estar sujeitos a termos de licenciamento adicionais.</p>
+
+<p><strong>31. Regras de Exportação:</strong> O Usuário deve cumprir todas as normas de exportação de software aplicáveis.</p>
+<p><strong>32. Consentimento:</strong> O uso do Software implica consentimento expresso aos termos deste Acordo.</p>
+<p><strong>33. Coleta de Informações:</strong> A Empresa poderá coletar dados de uso para fins estatísticos e de melhoria.</p>
+<p><strong>34. Transferência:</strong> O Usuário não pode transferir a licença sem autorização por escrito da Empresa.</p>
+<p><strong>35. Restrições Geográficas:</strong> Algumas funcionalidades poderão estar disponíveis apenas em certas regiões.</p>
+<p><strong>36. Direitos Autorais:</strong> Todos os direitos autorais relativos ao Software permanecem sob titularidade da Empresa.</p>
+<p><strong>37. Monitoramento:</strong> O Software pode incluir mecanismos automáticos de verificação de uso licenciado.</p>
+<p><strong>38. Atualizações Automáticas:</strong> O Usuário concorda que o Software pode ser atualizado automaticamente.</p>
+<p><strong>39. Renúncia de Garantias:</strong> A Empresa não garante que o Software atenderá a todas as expectativas do Usuário.</p>
+<p><strong>40. Exclusão de Danos:</strong> A Empresa não se responsabiliza por perdas financeiras decorrentes do uso do Software.</p>
+
+<p><strong>41. Revogação:</strong> A Empresa poderá revogar a licença em caso de descumprimento das cláusulas.</p>
+<p><strong>42. Registro:</strong> O Usuário pode ser solicitado a realizar registro para ativação ou uso contínuo.</p>
+<p><strong>43. Encargos Financeiros:</strong> Todos os tributos incidentes sobre o uso do Software são de responsabilidade do Usuário.</p>
+<p><strong>44. Suporte Limitado:</strong> O suporte poderá ser restrito a determinados idiomas, horários e canais.</p>
+<p><strong>45. Isenção de Garantia de Lucro:</strong> A Empresa não garante que o Software proporcionará ganhos financeiros.</p>
+<p><strong>46. Documentação:</strong> O Usuário deverá respeitar também os termos e instruções presentes na documentação.</p>
+<p><strong>47. Conectividade:</strong> O Software pode exigir conexão à internet para ativação ou funcionamento.</p>
+<p><strong>48. Políticas de Uso:</strong> O Usuário deve seguir as políticas de uso que acompanham o Software.</p>
+<p><strong>49. Restrição de Redistribuição:</strong> O Usuário não pode redistribuir cópias do Software a terceiros.</p>
+<p><strong>50. Persistência de Direitos:</strong> Direitos de propriedade intelectual permanecem após a rescisão da licença.</p>
+
+<p><strong>51. Acordo Completo:</strong> Este Acordo representa a totalidade do entendimento entre as partes.</p>
+<p><strong>52. Idioma:</strong> A versão oficial deste Acordo é em português, prevalecendo sobre traduções.</p>
+<p><strong>53. Autonomia das Cláusulas:</strong> Caso uma cláusula seja inválida, as demais permanecem válidas.</p>
+<p><strong>54. Restrições Específicas:</strong> Determinados recursos podem exigir acordos adicionais de licença.</p>
+<p><strong>55. Responsabilidade Exclusiva:</strong> O Usuário é o único responsável pelo uso do Software em sua atividade.</p>
+<p><strong>56. Continuidade de Obrigações:</strong> Obrigações como confidencialidade sobrevivem ao término deste Acordo.</p>
+<p><strong>57. Revisões:</strong> A Empresa pode revisar os termos sem aviso prévio.</p>
+<p><strong>58. Validade Territorial:</strong> A validade deste Acordo é limitada aos países em que o Software é distribuído.</p>
+<p><strong>59. Consentimento Explícito:</strong> O clique em “Aceitar” representa aceitação formal e irrestrita.</p>
+<p><strong>60. Responsabilidade de Configuração:</strong> O Usuário deve configurar o Software de acordo com suas necessidades.</p>
+
+<p><strong>61. Política de Reembolso:</strong> Eventuais reembolsos seguirão as regras da Empresa ou de parceiros autorizados.</p>
+<p><strong>62. Testes:</strong> Versões beta ou de teste podem conter erros não corrigidos.</p>
+<p><strong>63. Direitos de Uso Restrito:</strong> O Software só pode ser usado em ambientes autorizados.</p>
+<p><strong>64. Conformidade com Leis:</strong> O Usuário deve respeitar todas as leis ao utilizar o Software.</p>
+<p><strong>65. Restrições de Cópia:</strong> O Usuário não pode copiar documentação associada sem permissão.</p>
+<p><strong>66. Dados do Usuário:</strong> O Usuário é responsável pela veracidade dos dados fornecidos durante a instalação.</p>
+<p><strong>67. Ambiente Seguro:</strong> O Usuário deve garantir que o Software seja utilizado em ambiente protegido.</p>
+<p><strong>68. Testes de Compatibilidade:</strong> O Usuário deve realizar testes para validar a adequação do Software.</p>
+<p><strong>69. Responsabilidade Limitada:</strong> A responsabilidade da Empresa é limitada ao valor pago pelo Software.</p>
+<p><strong>70. Uso em Rede:</strong> O uso em rede pode exigir licenças adicionais.</p>
+
+<p><strong>71. Atualizações Obrigatórias:</strong> Algumas atualizações podem ser obrigatórias para manter a segurança.</p>
+<p><strong>72. Exclusividade:</strong> O Usuário não pode reivindicar direitos de exclusividade sobre o Software.</p>
+<p><strong>73. Autorização de Acesso:</strong> O Software pode solicitar permissões adicionais no sistema operacional.</p>
+<p><strong>74. Registro de Log:</strong> O Software pode registrar atividades para fins de auditoria.</p>
+<p><strong>75. Termos Complementares:</strong> Recursos adicionais podem requerer termos separados.</p>
+<p><strong>76. Licença Revogável:</strong> A Empresa pode revogar a licença sem necessidade de aviso em casos graves.</p>
+<p><strong>77. Custos Adicionais:</strong> Recursos avançados podem gerar custos adicionais.</p>
+<p><strong>78. Falhas Técnicas:</strong> A Empresa não se responsabiliza por falhas técnicas externas ao Software.</p>
+<p><strong>79. Atualizações Manuais:</strong> Algumas atualizações podem exigir ação manual do Usuário.</p>
+<p><strong>80. Registro Obrigatório:</strong> O uso pleno do Software pode depender de registro válido.</p>
+
+<p><strong>81. Manutenção:</strong> A Empresa poderá realizar manutenções programadas, suspendendo temporariamente o acesso.</p>
+<p><strong>82. Requisitos de Sistema:</strong> O Usuário deve atender aos requisitos mínimos especificados.</p>
+<p><strong>83. Uso Conjunto:</strong> O Software não deve ser utilizado simultaneamente com aplicativos conflitantes.</p>
+<p><strong>84. Responsabilidade de Treinamento:</strong> O Usuário deve garantir que pessoas autorizadas recebam treinamento adequado.</p>
+<p><strong>85. Responsabilidade Ética:</strong> O Software não deve ser usado em práticas antiéticas ou fraudulentas.</p>
+<p><strong>86. Armazenamento:</strong> O Software pode ocupar espaço significativo em disco, cabendo ao Usuário gerenciar.</p>
+<p><strong>87. Direitos Não Concedidos:</strong> Todos os direitos não expressamente concedidos são reservados à Empresa.</p>
+<p><strong>88. Alterações Técnicas:</strong> A Empresa pode modificar funcionalidades a qualquer tempo.</p>
+<p><strong>89. Restrições de Transferência:</strong> O Software não pode ser vendido ou alugado pelo Usuário.</p>
+<p><strong>90. Responsabilidade de Atualização:</strong> O Usuário deve manter sua cópia atualizada para segurança.</p>
+
+<p><strong>91. Funcionalidades Experimentais:</strong> Algumas funções podem ser experimentais e sujeitas a falhas.</p>
+<p><strong>92. Encerramento por Inatividade:</strong> A licença pode ser encerrada em caso de inatividade prolongada.</p>
+<p><strong>93. Responsabilidade de Senhas:</strong> O Usuário deve manter suas credenciais em segurança.</p>
+<p><strong>94. Integrações:</strong> O Software pode depender de serviços de terceiros, sujeitos a termos próprios.</p>
+<p><strong>95. Custos de Terceiros:</strong> O Usuário é responsável por custos relacionados a serviços externos.</p>
+<p><strong>96. Revisão de Termos:</strong> A Empresa pode revisar cláusulas periodicamente, publicando versões atualizadas.</p>
+<p><strong>97. Responsabilidade de Internet:</strong> O acesso à internet é de responsabilidade exclusiva do Usuário.</p>
+<p><strong>98. Garantia de Desempenho:</strong> Não há garantias de desempenho além das estabelecidas expressamente.</p>
+<p><strong>99. Notificações Legais:</strong> Todas as notificações relacionadas a este Acordo serão feitas por meios digitais.</p>
+<p><strong>100. Aceitação Final:</strong> Ao clicar em “Aceito”, o Usuário declara ter lido, entendido e concordado com todas as disposições.</p>
+
+
+
+
+                    </div>
+                    <div class="flex-label">
+                        <input type="checkbox" id="agreeCheckbox">
+                        Eu li e concordo com os termos do EULA acima.
+                    </div>
+                    <button id="acceptBtn" class="button-blue" disabled>Aceitar Termos</button>
+                    <p id="acceptMessage" class="hidden">Acordo aceito com sucesso! Você simulou a concordância com o EULA.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        
+        document.getElementById('buyBtn').addEventListener('click', function() {
+            document.getElementById('buyMessage').classList.remove('hidden');
+        });
+
+        
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            document.getElementById('downloadMessage').classList.remove('hidden');
+        });
+
+        
+        document.getElementById('trialBtn').addEventListener('click', function() {
+            document.getElementById('trialMessage').classList.remove('hidden');
+        });
+        document.getElementById('buySharewareBtn').addEventListener('click', function() {
+            document.getElementById('buySharewareMessage').classList.remove('hidden');
+        });
+       
+        const eulaContainer = document.querySelector('.eula-container');
+        const agreeCheckbox = document.getElementById('agreeCheckbox');
+        const acceptBtn = document.getElementById('acceptBtn');
+        const acceptMessage = document.getElementById('acceptMessage');
+        agreeCheckbox.disabled = true;
+
+        eulaContainer.addEventListener('scroll', function() {
+            const atBottom = eulaContainer.scrollTop + eulaContainer.clientHeight >= eulaContainer.scrollHeight - 2;
+            if (atBottom) {
+                agreeCheckbox.disabled = false;
+            }
+        });
+
+        agreeCheckbox.addEventListener('change', function() {
+            acceptBtn.disabled = !this.checked;
+            acceptBtn.classList.toggle('button-disabled', !this.checked);
+        });
+
+        acceptBtn.addEventListener('click', function() {
+            if (agreeCheckbox.checked) {
+                acceptMessage.classList.remove('hidden');
+                alert('EULA aceito! Esta é uma simulação.');
+            }
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
